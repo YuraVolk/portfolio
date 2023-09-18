@@ -39,6 +39,7 @@ export default {
         "CSS",
         "Python",
         "Java",
+        "MySQL",
         "PostgreSQL",
         "Photoshop",
         "Android",
@@ -48,8 +49,9 @@ export default {
         "Typescript",
         "NodeJS",
         "SCSS",
+        "LESS",
         "Redux",
-        "Webpack",
+        "Webpack"
       ];
       const counts = [1, 2, 4, 5, 4, 2, 1];
       const options = {

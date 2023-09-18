@@ -32,6 +32,9 @@
           class="education-certificate"
         >
           <zoomable-image
+            :id="certificate.title"
+            :selected-id="activeCertificate"
+            :on-click-callback="() => selectCertificate(certificate.title)"
             :classes="{
               wrapClass: 'education-certificate__image-wrap',
               imageClass: 'education-certificate__image',
@@ -72,7 +75,7 @@ export default {
   },
   data() {
     return {
-      activeCertificate: null,
+      activeCertificate: "",
       currentFilter: "All",
       filters: ["All", "Category 1", "Category 2", "Miscellaneous"],
       certificates: [
@@ -196,15 +199,14 @@ export default {
   },
 
   methods: {
-  setFilter(filter) {
+    setFilter(filter) {
+      this.activeCertificate = "";
       this.currentFilter = filter;
     },
 
     selectCertificate(certificateTitle) {
-      if (this.activeCertificate) {
-        if (this.activeCertificate === certificateTitle) {
-          this.activeCertificate = null;
-        }
+     if (this.activeCertificate === certificateTitle) {
+        this.activeCertificate = "";
       } else {
         this.activeCertificate = certificateTitle;
       }
@@ -219,6 +221,7 @@ export default {
 .education {
   @include layout.slide-wrap;
   z-index: 6;
+  overflow: hidden;
 
   &__link-wrap {
     position: absolute;
@@ -378,8 +381,8 @@ export default {
       top: 0;
       left: 0;
 
-      width: inherit;
-      height: 8rem;
+      width: 11.5rem;
+      height: auto;
       cursor: zoom-in;
 
       transition: width, height, top, left;
