@@ -77,19 +77,19 @@ export default {
     return {
       activeCertificate: "",
       currentFilter: "All",
-      filters: ["All", "Category 1", "Category 2", "Miscellaneous"],
+      filters: ["All", "Udemy", "Stepik", "General Education"],
       certificates: [
         {
           title: "Jenkins, from Zero to Hero",
-          category: "Miscellaneous",
+          category: "Udemy",
           link: "https://www.udemy.com/certificate/UC-a513aba0-4e2a-43e1-b201-458131d9a993/#",
-          image: "/src/assets/education/jenkis-zero-to-hero.jpg",
+          image: "/src/assets/education/jenkins-zero-to-hero.jpg",
         },
         {
-          title: "Udemy Cert 2",
-          category: "Category 1",
-          link: "#",
-          image: "/src/assets/education/jenkis-zero-to-hero.jpg",
+          title: "The Complete JavaScript Course",
+          category: "Udemy",
+          link: "https://www.udemy.com/certificate/UC-RFOA3BR7/",
+          image: "/src/assets/education/complete-javascript.jpg",
         },
         {
           title: "Udemy Cert 3",
