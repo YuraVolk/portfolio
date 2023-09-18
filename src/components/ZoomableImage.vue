@@ -7,14 +7,14 @@
       ref="main-image"
       :class="classes.imageClass"
       :src="imageSource"
-      @click="imageZoomed"
+      @click="onClickCallback"
     >
     <img
       v-show="isZoomed"
       ref="secondary-image"
       :class="imageClassObject"
       :src="imageSource"
-      @click="imageUnzoomed"
+      @click="onClickCallback"
     >
   </div>
 </template>
@@ -31,6 +31,18 @@ export default {
     },
     imageSource: {
       type: String,
+      required: true
+    },
+    id: {
+      type: String,
+      required: true
+    },
+    selectedId: {
+      type: String,
+      required: true
+    },
+    onClickCallback: {
+      type: Function,
       required: true
     }
   },
@@ -59,16 +71,26 @@ export default {
     }
   },
 
+  watch: {
+    selectedId(newValue) {
+      if (newValue === this.id && !this.isZoomed) {
+        this.imageZoomed();
+      } else if (this.isZoomed) {
+        this.imageUnzoomed();
+      }
+    }
+  },
+
   mounted() {
     this.$refs["secondary-image"].onload = () => {
       this.width = this.$refs["main-image"].clientWidth + "px";
-      this.height = this.$refs["main-image"].clientHeight + "px";
+      this.height = "auto";
     };
 
     this.intersectionObserver = new IntersectionObserver(this.onScroll, {
       root: this.$refs["main-image"].offsetParent,
       rootMargin: "5%",
-      threshold: Array.from(Array(100).keys()).map(i => ++i / 100)
+      threshold: [0, ...Array.from(Array(100).keys()).map(i => ++i / 100)]
     });
     this.intersectionObserver.observe(this.$refs["secondary-image"]);
   },
@@ -103,11 +125,11 @@ export default {
         this.isZoomed = true;
 
         setTimeout(() => {
-          this.width = "65%";
-          this.height = "90%";
+          this.width = "85%";
+          this.height = "auto";
 
           this.absolutePositionTop = `calc(5% + ${this.$refs["main-image"].offsetParent.scrollTop}px)`;
-          this.absolutePositionLeft = "17.5%";
+          this.absolutePositionLeft = "7.5%";
         }, 50);
       }
     },
@@ -130,7 +152,7 @@ export default {
         this.$refs["secondary-image"].addEventListener("transitionend", onZoomingEnd);
 
         this.width = this.$refs["main-image"].clientWidth + "px";
-        this.height = this.$refs["main-image"].clientHeight + "px";
+        this.height = "auto";
 
         this.absolutePositionTop =
           this.$refs["main-image"].getBoundingClientRect().top -

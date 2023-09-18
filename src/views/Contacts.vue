@@ -145,6 +145,7 @@ export default {
 .contacts {
   @include layout.slide-wrap;
   z-index: 2;
+  overflow: hidden;
 
   &__link-wrap {
     position: absolute;

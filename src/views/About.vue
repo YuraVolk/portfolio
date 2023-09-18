@@ -108,7 +108,6 @@ export default {
   z-index: 3;
   right: 0%;
   z-index: 11;
-  pointer-events: none;
 
   @media screen and (max-width: 1170px) {
     display: none;
