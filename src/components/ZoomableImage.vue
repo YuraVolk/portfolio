@@ -89,8 +89,7 @@ export default {
 
     this.intersectionObserver = new IntersectionObserver(this.onScroll, {
       root: this.$refs["main-image"].offsetParent,
-      rootMargin: "5%",
-      threshold: [0, ...Array.from(Array(100).keys()).map(i => ++i / 100)]
+      threshold: 0
     });
     this.intersectionObserver.observe(this.$refs["secondary-image"]);
   },
