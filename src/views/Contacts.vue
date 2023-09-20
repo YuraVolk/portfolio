@@ -49,7 +49,13 @@
             </li>
           </ul>
         </div>
-        <form class="contacts-form">
+        <form 
+          ref="form"
+          class="contacts-form gform"
+          method="POST"
+          action="https://script.google.com/macros/s/AKfycbyeb7TdNdHUlR1r4qHz5KS8-dRuSNTXIKAcQFtCkikJ05bXxZ73HWtL6L60tbo3XtK_Ig/exec"
+          @submit.prevent="onSubmit"
+        >
           <fieldset class="contacts-form__initials">
             <div
               class="contacts-form__input-wrap contacts-form__input-wrap--initials"
@@ -57,7 +63,9 @@
               <input
                 class="contacts-form__input"
                 type="text"
+                name="Name"
                 placeholder="Name"
+                required
               >
               <span class="contacts-form__input-decoration" />
             </div>
@@ -68,6 +76,8 @@
                 class="contacts-form__input"
                 type="email"
                 placeholder="Email"
+                name="Email"
+                required
               >
               <span class="contacts-form__input-decoration" />
             </div>
@@ -79,6 +89,8 @@
               class="contacts-form__input"
               type="text"
               placeholder="Subject"
+              name="Subject"
+              required
             >
             <span class="contacts-form__input-decoration" />
           </div>
@@ -87,7 +99,9 @@
           >
             <textarea
               class="contacts-form__input"
+              name="Message"
               placeholder="Your message"
+              required
             />
             <span class="contacts-form__input-decoration" />
           </div>
@@ -102,6 +116,7 @@
     </div>
     <div class="contacts__link-wrap">
       <router-link
+        ref="goBackButton"
         to="/about"
         class="about-me-button"
       >
@@ -147,6 +162,17 @@ export default {
       };
     });
   },
+  methods: {
+    onSubmit() {
+      const formData = new FormData(this.$refs.form);
+      fetch("https://script.google.com/macros/s/AKfycbyeb7TdNdHUlR1r4qHz5KS8-dRuSNTXIKAcQFtCkikJ05bXxZ73HWtL6L60tbo3XtK_Ig/exec", {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+      this.$refs.goBackButton.$el.click();
+    }
+  }
 };
 </script>
 
