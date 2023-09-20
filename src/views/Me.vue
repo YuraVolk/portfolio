@@ -19,18 +19,14 @@
           </canvas-template>
           <div class="about-me-content-wrap">
             <reciphering-text
-              text="Section 1"
+              text="About Me"
               class="about-me-heading"
             />
             <p class="about-me-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum neque urna, ac tristique nulla lobortis
-              non. In egestas nec eros quis imperdiet. Cras laoreet, ipsum vitae tempus convallis, nibh mauris porta mauris, congue
-              placerat tellus arcu quis nibh. Ut ut nunc scelerisque ante sodales scelerisque. Sed lacinia sapien ac turpis
-              malesuada, in elementum dui efficitur.
+              I'm a 17 year old full-stack developer that got hooked on the programming in early school.
+              Since then, I've initially learned Java, later also learning HTML and CSS, and JavaScript/TypeScript after that.
+              After having learnt popular frameworks, I've slowly moved from small pet projects to medium-scale projects.
             </p>
-            <button class="about-me-button">
-              Dummy text
-            </button>
           </div>
         </section>
       </li>
@@ -48,18 +44,21 @@
           </canvas-template>
           <div class="about-me-content-wrap">
             <reciphering-text
-              text="Section 2"
+              text="A bit of History"
               class="about-me-heading"
             />
             <p class="about-me-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum neque urna, ac tristique nulla lobortis
-              non. In egestas nec eros quis imperdiet. Cras laoreet, ipsum vitae tempus convallis, nibh mauris porta mauris, congue
-              placerat tellus arcu quis nibh. Ut ut nunc scelerisque ante sodales scelerisque. Sed lacinia sapien ac turpis
-              malesuada, in elementum dui efficitur.
+              After getting introduced to programming, I've started trying out different spheres in IT Step academy,
+              and soon started to learn on my own in free Stepik courses. After completing Stepik algorithms and data structures course
+              with distinction, I've been invited to study and help with projects at Hyperskill, where I have obtained the most expertise
+              and brought Java and Kotlin to the next level.
             </p>
-            <button class="about-me-button">
-              Dummy text
-            </button>
+            <a 
+              class="about-me-button"
+              href="https://hyperskill.org/profile/60803"
+              rel="noopener noreferrer"
+              target="_blank"
+            >View my hyperskill profile</a>
           </div>
         </section>
       </li>
@@ -77,18 +76,18 @@
           </canvas-template>
           <div class="about-me-content-wrap">
             <reciphering-text
-              text="Section 3"
+              text="My Skills"
               class="about-me-heading"
             />
             <p class="about-me-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum neque urna, ac tristique nulla lobortis
-              non. In egestas nec eros quis imperdiet. Cras laoreet, ipsum vitae tempus convallis, nibh mauris porta mauris, congue
-              placerat tellus arcu quis nibh. Ut ut nunc scelerisque ante sodales scelerisque. Sed lacinia sapien ac turpis
-              malesuada, in elementum dui efficitur.
+              I've had experience in building small-scale projects in Java and Kotlin, variable in complexity.
+              I've had an immersive experience of building HTML & (S)CSS landings, 
+              including using tools such as Photoshop and Illustrator to prepare assets;
+              as well as having developed multiple medium-scale projects (>50,000 lines of code) built through JavaScript/TypeScript, 
+              and have 5 years of exprience with React and 2 years of experience working with Vue,
+              as well as limited experience in configuring advanced interrelated CI/CD systems.
+              Additional experience of mine is being able to debug code in a highly efficient manner, having worked 2 years as a code tester and debugger.
             </p>
-            <button class="about-me-button">
-              Dummy text
-            </button>
           </div>
         </section>
       </li>
@@ -106,18 +105,16 @@
           </canvas-template>
           <div class="about-me-content-wrap">
             <reciphering-text
-              text="Section 4"
+              text="My Projects"
               class="about-me-heading"
             />
             <p class="about-me-paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum neque urna, ac tristique nulla lobortis
-              non. In egestas nec eros quis imperdiet. Cras laoreet, ipsum vitae tempus convallis, nibh mauris porta mauris, congue
-              placerat tellus arcu quis nibh. Ut ut nunc scelerisque ante sodales scelerisque. Sed lacinia sapien ac turpis
-              malesuada, in elementum dui efficitur.
+              One of my key projects so far has been Chess Variants Wiki: a project using Typescript, React, Redux and Redux Saga for frontend,
+              and Spring Boot for backend. It is designed for being highly scalable at all sizes, with many optimizations such as automatically
+              registering files from directories, using SCSS modules to manage styles and advanced code structuring techniques such as converting classes
+              to their fully observable counterparts to split responsibilities between different variant rules. The project got me hooekd in as a challenging
+              task to implement in a quick time in a very clean way, especially with the complexity creating for difficulty of performance optimization and total amount of possible bugs.
             </p>
-            <button class="about-me-button">
-              Dummy text
-            </button>
           </div>
         </section>
       </li>
@@ -447,6 +444,11 @@ export default {
   left: 0;
   margin-top: 4%;
   text-align: left;
+
+  * {
+    color: inherit;
+    text-decoration: inherit;
+  }
 
   &::after {
     content: "";
