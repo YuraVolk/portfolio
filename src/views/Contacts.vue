@@ -9,17 +9,16 @@
       <div class="contacts-form-wrap">
         <div class="contacts-description-wrap">
           <p class="contacts-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            bibendum neque urna, ac tristique nulla lobortis non. In egestas nec
-            eros quis imperdiet.
+            If you have any inquiries, collaboration opportunities, or would simply like to connect, please feel free to get in touch. 
+            I'm always excited to hear from new people and explore potential projects.
           </p>
           <hr>
           <ul class="contacts-social-media">
             <li class="contacts-social-media__item">
-              yura.volkovskiy.2006@gmail.com
+              Email: yura.volkovskiy.2006@gmail.com
             </li>
             <li class="contacts-social-media__item">
-              yura.volkovskiy.2006
+              Discord username: yuravolk
             </li>
           </ul>
           <hr>
@@ -29,7 +28,12 @@
               :key="socialMedia.key"
               class="contacts-social-icon"
             >
-              <a class="contacts-social-link">
+              <a 
+                class="contacts-social-link"
+                rel="noopener noreferrer"
+                target="_blank"
+                :href="socialMedia.href"
+              >
                 <img
                   :src="socialMedia.src"
                   :alt="socialMedia.alt"
@@ -121,9 +125,16 @@ export default {
     };
   },
   created() {
-    const social = ["Codepen", "Github", "LinkedIn", "Trello", "Viber"];
-    const links = ["#", "#", "#", "#", "#"];
-    const colors = ["#FCD000", "#80471C", "#0a66c2", "#70b500", "#7360F2"];
+    const social = ["Codepen", "Github", "LinkedIn", "Trello", "Viber", "Telegram"];
+    const links = [
+      "https://codepen.io/yuravolk", 
+      "https://github.com/YuraVolk", 
+      "#",
+      "https://trello.com/u/yuravolkovskiy", 
+      "viber://chat/?number=%2B380951955616",
+      "https://t.me/yuravolk20"
+    ];
+    const colors = ["#FCD000", "#80471C", "#0a66c2", "#70b500", "#7360F2", "#229ED9"];
     this.socialLinks = social.map((e, i) => {
       return {
         src: new URL(`/src/assets/${e.toLowerCase()}-icon.png`, import.meta.url)
@@ -253,6 +264,7 @@ export default {
       padding-left: 15px;
       border: none;
 
+      color: #fff;
       background-color: #1e1e1e;
 
       &-wrap {
