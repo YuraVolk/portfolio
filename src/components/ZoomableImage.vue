@@ -6,14 +6,14 @@
     <img
       ref="main-image"
       :class="classes.imageClass"
-      :src="imageSource"
+      :src="`${imageSource}.webp`"
       @click="onClickCallback"
     >
     <img
       v-show="isZoomed"
       ref="secondary-image"
       :class="imageClassObject"
-      :src="imageSource"
+      :src="`${imageSource}.webp`"
       @click="onClickCallback"
     >
   </div>

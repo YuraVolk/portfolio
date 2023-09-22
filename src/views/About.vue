@@ -7,11 +7,23 @@
             class="menu-option__content"
             to="/about-me"
           >
-            <img
-              src="@/assets/about-me-icon.png"
-              alt="User Icon"
+            <picture
               class="menu-option__image"
             >
+              <source
+                srcset="../assets/about-me-icon.webp" 
+                type="image/webp"
+              >
+              <source
+                srcset="../assets/about-me-icon.png" 
+                type="image/png"
+              >
+              <img
+                src="../assets/about-me-icon.png"
+                alt=""
+                class="menu-option__image"
+              >
+            </picture>
             <h2 class="menu-option__heading">
               About Me
             </h2>
@@ -22,11 +34,23 @@
             class="menu-option__content"
             to="/projects"
           >
-            <img
-              src="@/assets/projects-icon.png"
-              alt="Suitcase Icon"
+            <picture
               class="menu-option__image"
             >
+              <source
+                srcset="../assets/projects-icon.webp" 
+                type="image/webp"
+              >
+              <source
+                srcset="../assets/projects-icon.png" 
+                type="image/png"
+              >
+              <img
+                src="../assets/projects-icon.png"
+                alt=""
+                class="menu-option__image"
+              >
+            </picture>
             <h2 class="menu-option__heading">
               Projects
             </h2>
@@ -37,11 +61,23 @@
             class="menu-option__content"
             to="/education"
           >
-            <img
-              src="@/assets/educations-icon.png"
-              alt="Books Icon"
+            <picture
               class="menu-option__image"
             >
+              <source
+                srcset="../assets/educations-icon.webp" 
+                type="image/webp"
+              >
+              <source
+                srcset="../assets/educations-icon.png" 
+                type="image/png"
+              >
+              <img
+                src="../assets/educations-icon.png"
+                alt=""
+                class="menu-option__image"
+              >
+            </picture>
             <h2 class="menu-option__heading">
               Education
             </h2>
@@ -52,11 +88,23 @@
             class="menu-option__content"
             to="/contacts"
           >
-            <img
-              src="@/assets/contacts-icon.png"
-              alt="Phone Icon"
+            <picture
               class="menu-option__image"
             >
+              <source
+                srcset="../assets/contacts-icon.webp" 
+                type="image/webp"
+              >
+              <source
+                srcset="../assets/contacts-icon.png" 
+                type="image/png"
+              >
+              <img
+                src="../assets/contacts-icon.png"
+                alt=""
+                class="menu-option__image"
+              >
+            </picture>
             <h2 class="menu-option__heading">
               Contacts
             </h2>
@@ -152,10 +200,9 @@ export default {
   }
 
   .menu-option__image {
-    top: 0;
     width: 80%;
-    z-index: 11;
     height: 80%;
+    margin: 0 auto;
   }
 
   .menu-option__heading {

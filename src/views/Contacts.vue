@@ -34,17 +34,40 @@
                 target="_blank"
                 :href="socialMedia.href"
               >
-                <img
-                  :src="socialMedia.src"
-                  :alt="socialMedia.alt"
-                  class="contacts-social-image"
-                >
-                <img
-                  :src="socialMedia.src"
-                  :alt="socialMedia.alt"
-                  :style="socialMedia.style"
+                <picture class="contacts-social-image">
+                  <source
+                    :srcset="socialMedia.webpSrc"
+                    type="image/webp"
+                  >
+                  <source
+                    :srcset="socialMedia.src"
+                    type="image/png"
+                  >
+                  <img
+                    :src="socialMedia.src"
+                    :alt="socialMedia.alt"
+                    class="contacts-social-image"
+                  >
+                </picture>
+                <picture
                   class="contacts-social-image contacts-social-image--filter"
+                  :style="socialMedia.style"
                 >
+                  <source
+                    :srcset="socialMedia.webpSrc"
+                    type="image/webp"
+                  >
+                  <source
+                    :srcset="socialMedia.src"
+                    type="image/png"
+                  >
+                  <img
+                    :src="socialMedia.src"
+                    :alt="socialMedia.alt"
+                    :style="socialMedia.style"
+                    class="contacts-social-image contacts-social-image--filter"
+                  >
+                </picture>
               </a>
             </li>
           </ul>
@@ -153,6 +176,8 @@ export default {
     this.socialLinks = social.map((e, i) => {
       return {
         src: new URL(`/src/assets/${e.toLowerCase()}-icon.png`, import.meta.url)
+          .href,
+        webpSrc: new URL(`/src/assets/${e.toLowerCase()}-icon.webp`, import.meta.url)
           .href,
         alt: `${e} Logo`,
         key: `contacts-${e}`,
