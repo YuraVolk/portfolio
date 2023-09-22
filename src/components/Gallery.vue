@@ -114,23 +114,29 @@ export default {
     return {
       slides: [
         {
-          name: "Project A",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non massa eros. Integer sed auctor tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et mi et augue viverra pellentesque vitae et elit. Suspendisse sagittis nisi at metus interdum venenatis sit amet a felis. Aliquam efficitur elit nisi, nec auctor dui posuere a. Pellentesque vel nulla vel turpis venenatis fringilla eu dignissim purus. Ut vehicula nulla vel faucibus cursus. Vestibulum posuere lectus quis mi gravida, sed maximus mauris aliquam.",
-          link: "#",
+          name: "Chess Variants Wiki",
+          description: `A chess variants website supporting customization, over 40 variant rules to create countless variants,
+          engine-generated moves, as well as up to 4 players that play as teams or everyone against everyone. The website parses
+          the pages written in Markdown and when finding component syntax creates and shows chess variant boards ranging up to 14x14 board size.`,
+          link: "https://chess-variants-wiki.up.railway.app/",
         },
         {
-          name: "Project B",
+          name: "Practice Landings Catalog",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non massa eros. Integer sed auctor tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et mi et augue viverra pellentesque vitae et elit. Suspendisse sagittis nisi at metus interdum venenatis sit amet a felis. Aliquam efficitur elit nisi, nec auctor dui posuere a. Pellentesque vel nulla vel turpis venenatis fringilla eu dignissim purus. Ut vehicula nulla vel faucibus cursus. Vestibulum posuere lectus quis mi gravida, sed maximus mauris aliquam.",
-          link: "#",
+            "A a catalog of practice landings showcasing HTML & (S)CSS techniques, currently featuring 10 practice landings with varying difficulty of implementation. All of the landings are responsible on dimensions from 320px to 1800px, and are as maximally accessible as possible in accordance with the original design. The catalog is meant to showcase clean SCSS code practices even for over-complicated designs as well as complex designs that is still done in a clean and a readable, understandable way.",
+          link: "https://practice-landings-catalog.surge.sh/",
         },
         {
-          name: "Project C",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non massa eros. Integer sed auctor tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et mi et augue viverra pellentesque vitae et elit. Suspendisse sagittis nisi at metus interdum venenatis sit amet a felis. Aliquam efficitur elit nisi, nec auctor dui posuere a. Pellentesque vel nulla vel turpis venenatis fringilla eu dignissim purus. Ut vehicula nulla vel faucibus cursus. Vestibulum posuere lectus quis mi gravida, sed maximus mauris aliquam.",
-          link: "#",
+          name: "JS Components Library",
+          description: "A library of Javascript components for various scenarios, ranging from simple to pagination to complex different types of carousels and zooming features, as well as inputs, sliders and image comparisons.",
+          link: "https://yuravolk.github.io/Js-Library/index.html"
         },
+        {
+          name: "Flappy Bird",
+          description:
+            "A simple pet project that features a flappy bird game with updated textures written in Javascript and working through and fully built with HTML5 Canvas, featuring simple and intuitive controls.",
+          link: "https://yuravolk.github.io/Flappy-Bird-Pages/",
+        },  
       ],
       current: 1,
       direction: undefined,
@@ -226,7 +232,7 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 100%;
 }
 
@@ -241,9 +247,11 @@ export default {
 
 .gallery-list__item-content {
   position: absolute;
+  width: 100vw;
 
   .gallery-content__heading {
     font-size: 4rem;
+    white-space: normal;
 
     @media (max-width: 530px) {
       font-size: 2.5rem;
@@ -264,6 +272,7 @@ export default {
     animation-delay: 1s;
     top: 100px;
     opacity: 0;
+    margin: 0 auto;
 
     @media (max-width: 630px) {
       width: 65vw;
