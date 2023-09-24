@@ -118,7 +118,7 @@ export default {
           description: `A chess variants website supporting customization, over 40 variant rules to create countless variants,
           engine-generated moves, as well as up to 4 players that play as teams or everyone against everyone. The website parses
           the pages written in Markdown and when finding component syntax creates and shows chess variant boards ranging up to 14x14 board size.`,
-          link: "https://chess-variants-wiki.up.railway.app/",
+          link: "https://chess-variants-wiki.onrender.com/",
         },
         {
           name: "Practice Landings Catalog",
