@@ -13,7 +13,7 @@
         :class="{ 'education-filter--active': currentFilter === item }"
         @click="setFilter(item)"
       >
-        <span class="education-filter__content">{{ item }}</span>
+        <span class="education-filter__content">{{ $t(`education.filters.${item}`) }}</span>
       </li>
     </ul>
     <transition-group
@@ -59,7 +59,7 @@
         to="/about"
         class="about-me-button"
       >
-        Go back
+        {{ $t('goBack') }}
       </router-link>
     </div>
   </div>

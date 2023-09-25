@@ -2,17 +2,16 @@
   <header class="header">
     <div class="headers">
       <reciphering-text
-        text="Yuriy Volkovskiy"
+        :text="$t('home.name')"
         is-delayed-start
         class="header-text parallax"
       />
       <reciphering-text
-        text="A full-stack developer"
+        :text="$t('home.about')"
         is-delayed-start
         class="header-text parallax"
       />
     </div>
-
     <router-link
       to="/about"
       class="header-arrow"

@@ -7,11 +7,10 @@
 
 <script>
 export default {
-
   props: {
     text: {
       type: String,
-      required: true
+      required: true,
     },
     isDelayedStart: Boolean,
   },
@@ -20,6 +19,7 @@ export default {
       nbspText: null,
       isRebuilding: false,
       baseString: null,
+      disabled: false,
       symbols: [
         "!",
         '"',
@@ -51,9 +51,16 @@ export default {
       ],
     };
   },
+  watch: {
+    text: function(newValue) {
+      this.baseString = newValue;
+      this.disabled = true;
+      this.$refs["reciphering-paragraph"].textContent = newValue;
+    },
+  },
 
   created() {
-    this.nbspText = this.text.replace(/ /g, '\u00a0');
+    this.nbspText = this.text.replace(/ /g, "\u00a0");
     const symbolsSpaced = this.symbols.concat(Array(0).fill(" "));
 
     let baseString = "";
@@ -66,92 +73,98 @@ export default {
   },
 
   mounted() {
-    if (!this.isDelayedStart) {
-      this.$refs["reciphering-paragraph"].textContent = this.baseString;
-    }
+    this.cipherText();
+  },
 
-
-    const cipherLetter = (el, newLetter, isTimed) => {
-      let changeNumber;
-
-      if (!isTimed) {
-        changeNumber = Math.round(Math.random() * (44 - 6) + 6);
-      } else {
-        changeNumber = Math.round(Math.random() * (14 - 6) + 6);
+  methods: {
+    cipherText(noDelayStart = false) {
+      if (!this.isDelayedStart) {
+        this.$refs["reciphering-paragraph"].textContent = this.baseString;
       }
-      let isDone = false;
-      let index = 0;
-      let symbols = this.symbols;
-      setTimeout(function () {
-        while (index <= changeNumber) {
-          (function (index) {
-            setTimeout(function () {
-              if (!isDone) {
-                let symbol =
-                  symbols[Math.floor(Math.random() * symbols.length)];
-                el.textContent = symbol;
-              }
-              if (!(index < changeNumber)) {
-                isDone = true;
-                el.textContent = newLetter;
-                el.classList.remove("changing-letter");
-              }
-            }, 65 * index);
-          })(index++);
+
+      const cipherLetter = (el, newLetter, isTimed) => {
+        let changeNumber;
+
+        if (!isTimed) {
+          changeNumber = Math.round(Math.random() * (44 - 6) + 6);
+        } else {
+          changeNumber = Math.round(Math.random() * (14 - 6) + 6);
         }
-      }, Math.random() * 1000);
-    };
+        let isDone = false;
+        let index = 0;
+        let symbols = this.symbols;
+        setTimeout(function () {
+          while (index <= changeNumber) {
+            (function (index) {
+              setTimeout(function () {
+                if (!isDone) {
+                  let symbol =
+                    symbols[Math.floor(Math.random() * symbols.length)];
+                  el.textContent = symbol;
+                }
+                if (!(index < changeNumber)) {
+                  isDone = true;
+                  el.textContent = newLetter;
+                  el.classList.remove("changing-letter");
+                }
+              }, 65 * index);
+            })(index++);
+          }
+        }, Math.random() * 1000);
+      };
 
-    function splitText(el, nextPhraseLength) {
-      const oldText = el.textContent;
-      el.textContent = "";
-      for (let i = 0; i < oldText.length; i++) {
-        el.insertAdjacentHTML(
-          "beforeend",
-          "<span>" + oldText.charAt(i) + "</span>"
-        );
-      }
-      if (nextPhraseLength > oldText.length) {
-        for (let i = 0; i < nextPhraseLength - oldText.length; i++) {
-          el.insertAdjacentHTML("beforeend", "<span></span>");
+      function splitText(el, nextPhraseLength) {
+        const oldText = el.textContent;
+        el.textContent = "";
+        for (let i = 0; i < oldText.length; i++) {
+          el.insertAdjacentHTML(
+            "beforeend",
+            "<span>" + oldText.charAt(i) + "</span>"
+          );
         }
-      }
-    }
-
-    function recipherText(children, nextText) {
-      children.forEach((el, i) => {
-        if (!(el.textContent == nextText.charAt(i))) {
-          el.classList.add("changing-letter");
-          if (el.textContent.length === 0) {
-            setTimeout(function () {
-              cipherLetter(el, nextText.charAt(i), true);
-            }, 45 * i);
-          } else {
-            cipherLetter(el, nextText.charAt(i), false);
+        if (nextPhraseLength > oldText.length) {
+          for (let i = 0; i < nextPhraseLength - oldText.length; i++) {
+            el.insertAdjacentHTML("beforeend", "<span></span>");
           }
         }
-      });
-    }
+      }
 
+      function recipherText(children, nextText) {
+        children.forEach((el, i) => {
+          if (!(el.textContent == nextText.charAt(i))) {
+            el.classList.add("changing-letter");
+            if (el.textContent.length === 0) {
+              setTimeout(function () {
+                cipherLetter(el, nextText.charAt(i), true);
+              }, 45 * i);
+            } else {
+              cipherLetter(el, nextText.charAt(i), false);
+            }
+          }
+        });
+      }
 
-    if (this.isDelayedStart) {
-      setTimeout(() => {
-        this.$refs["reciphering-paragraph"].textContent = this.baseString;
+      if (this.isDelayedStart && !noDelayStart) {
+        setTimeout(() => {
+          if (this.disabled) return;
+          this.$refs["reciphering-paragraph"].textContent = this.baseString;
+          splitText(this.$refs["reciphering-paragraph"], this.nbspText.length);
+          recipherText(
+            Array.from(this.$refs["reciphering-paragraph"].childNodes),
+            this.nbspText
+          );
+        }, 4000);
+      } else {
         splitText(this.$refs["reciphering-paragraph"], this.nbspText.length);
-        recipherText(
-          Array.from(this.$refs["reciphering-paragraph"].childNodes),
-          this.nbspText
-        );
-      }, 4000);
-    } else {
-      splitText(this.$refs["reciphering-paragraph"], this.nbspText.length);
-      setTimeout(() => {
-        recipherText(
-          Array.from(this.$refs["reciphering-paragraph"].childNodes),
-          this.nbspText
-        );
-      }, 200);
-    }
+        setTimeout(() => {
+          if (this.disabled) return;
+          recipherText(
+            Array.from(this.$refs["reciphering-paragraph"].childNodes),
+            this.nbspText
+          );
+        }, 200);
+      }
+    },
   },
 };
 </script>
@@ -183,6 +196,4 @@ export default {
 .changing-letter {
   color: #444;
 }
-
-
 </style>

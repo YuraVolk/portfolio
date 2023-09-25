@@ -4,116 +4,30 @@
       ref="scroll-sections"
       class="about-me-sections"
     >
-      <li class="about-me-sections__wrap">
+      <li
+        v-for="(_, index) in offsets"
+        :key="index"
+        class="about-me-sections__wrap"
+        :class="{
+          'about-me-sections__wrap--active': activeSection == index,
+        }"
+      >
         <section
           class="about-me-section parallax"
-          :class="{
-            'about-me-sections__wrap--active': activeSection == 0,
-          }"
         >
           <canvas-template>
             <particle-image
               base64src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAAADAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQT///9w6yyTAAAAYXRSTlMAAAEDq/z1HwIFcv5VBMf94QuR+znixawg9qrI4DuPDFdwIXE8Om8HDwYIkj0JwPEWF3+AgX6M+dd7gn3f8oYuLA1ISdjnTkdLsmxCSt7Gp/QcI/fJVpAiHaZtsYfzqME+GbIe1QAAAAFiS0dEYiu5HTwAAAAJcEhZcwAA3XUAAN11AayHw4MAAAAHdElNRQfmBBkKHB1cvli4AAACqUlEQVRIx5WV+0MSQRDHmT2xo+04lSyh7EWEEFYgCr5SMB+l0hN6P+b//yea3dm725WjYH7R3Rv2O/e9z8xmMnEI4cEcZhHnr4Ev1Abk4DptSLwBgRAZNwTl5zGUuLAI+qEQASxhATG8CZ4AN5tSYHEZZYi3PGHSPbhty7mn+7BSRHpcorOEkbuj5O4qubHTPViVSOL3uFKVct+Rc0sP4AGGdPpDekXBco8cOSedksq2D0rusS2nayBNE5EPFXUYb7DcEyVHAWAXM43tAkQuiqq2fXnNr/G6Dk/V78MGVNWSUvX7g/nh+oLy4RmAiJwtYVbi8xfgc9VASc3Who725lYHSbq7vbNhdnb3aI37L1ttWrWadIwPB/R600ThgER8OCyGBY6s3paFJKTeyap/w+Ihp3emO70Tp+tDpNmWqckyTp+2dpUuoNfnOOq/Qinx+OT0iDfOGq/po6J8c36h1z3bdwH1S2X7QCS2v1Vf6d17ZXvsu/B0BPDhI+OX80zUPmnaeyLQS/NVOYj2MMZPh0272bFpH9Lrz0z7MKF99SrtTi+NFO2ywl0/3lxuekT7SkJ7eXzIJM3kDeIhY3pp5DaXbWQgepr2fC2yMcdyxc/APnp2e/jwZV758DWaQPRQy13WufLoMzEEF+ffyIcQvzfODBOnJ8cKim7fMKEhmBGxBOAUZq2/0uJ9pvbg5vtn51nNN1Nrm8HRbv34qQrc222bqbGz3VVVd7Y2zY4eHMZ3H5r7KLP4K7Edfmva1w0wcXvoeQd/NH5LUOeBV/PXNO2DajwTozYztCv8ygntfJXMubTzwDb4hUw7N1dFy43i5koGdirt3FzlCbSX0mkfTrhSE9rBkgsrE65UTfvAulKd5vr/lZq35dKv1JGpVA0ZR+7qGHB9mGT7Xx5xFCe09zrMAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA0LTI1VDEwOjI4OjE3KzAwOjAwunjJEgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNC0yNVQxMDoyODoxNyswMDowMMslca4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"
-              is-delayed-start
+              :is-delayed-start="index == 0"
             />
           </canvas-template>
           <div class="about-me-content-wrap">
             <reciphering-text
-              text="About Me"
+              :text="$t(`about.${['first','second','third','fourth'][index]}SectionHeading`)"
               class="about-me-heading"
             />
             <p class="about-me-paragraph">
-              I'm a 17 year old full-stack developer that got hooked on the programming in early school.
-              Since then, I've initially learned Java, later also learning HTML and CSS, and JavaScript/TypeScript after that.
-              After having learnt popular frameworks, I've slowly moved from small pet projects to medium-scale projects.
-            </p>
-          </div>
-        </section>
-      </li>
-      <li
-        class="about-me-sections__wrap"
-        :class="{
-          'about-me-sections__wrap--active': activeSection == 1,
-        }"
-      >
-        <section class="about-me-section parallax">
-          <canvas-template>
-            <particle-image
-              base64src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAAADAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQT///9w6yyTAAAAYXRSTlMAAAEDq/z1HwIFcv5VBMf94QuR+znixawg9qrI4DuPDFdwIXE8Om8HDwYIkj0JwPEWF3+AgX6M+dd7gn3f8oYuLA1ISdjnTkdLsmxCSt7Gp/QcI/fJVpAiHaZtsYfzqME+GbIe1QAAAAFiS0dEYiu5HTwAAAAJcEhZcwAA3XUAAN11AayHw4MAAAAHdElNRQfmBBkKHB1cvli4AAACqUlEQVRIx5WV+0MSQRDHmT2xo+04lSyh7EWEEFYgCr5SMB+l0hN6P+b//yea3dm725WjYH7R3Rv2O/e9z8xmMnEI4cEcZhHnr4Ev1Abk4DptSLwBgRAZNwTl5zGUuLAI+qEQASxhATG8CZ4AN5tSYHEZZYi3PGHSPbhty7mn+7BSRHpcorOEkbuj5O4qubHTPViVSOL3uFKVct+Rc0sP4AGGdPpDekXBco8cOSedksq2D0rusS2nayBNE5EPFXUYb7DcEyVHAWAXM43tAkQuiqq2fXnNr/G6Dk/V78MGVNWSUvX7g/nh+oLy4RmAiJwtYVbi8xfgc9VASc3Who725lYHSbq7vbNhdnb3aI37L1ttWrWadIwPB/R600ThgER8OCyGBY6s3paFJKTeyap/w+Ihp3emO70Tp+tDpNmWqckyTp+2dpUuoNfnOOq/Qinx+OT0iDfOGq/po6J8c36h1z3bdwH1S2X7QCS2v1Vf6d17ZXvsu/B0BPDhI+OX80zUPmnaeyLQS/NVOYj2MMZPh0272bFpH9Lrz0z7MKF99SrtTi+NFO2ywl0/3lxuekT7SkJ7eXzIJM3kDeIhY3pp5DaXbWQgepr2fC2yMcdyxc/APnp2e/jwZV758DWaQPRQy13WufLoMzEEF+ffyIcQvzfODBOnJ8cKim7fMKEhmBGxBOAUZq2/0uJ9pvbg5vtn51nNN1Nrm8HRbv34qQrc222bqbGz3VVVd7Y2zY4eHMZ3H5r7KLP4K7Edfmva1w0wcXvoeQd/NH5LUOeBV/PXNO2DajwTozYztCv8ygntfJXMubTzwDb4hUw7N1dFy43i5koGdirt3FzlCbSX0mkfTrhSE9rBkgsrE65UTfvAulKd5vr/lZq35dKv1JGpVA0ZR+7qGHB9mGT7Xx5xFCe09zrMAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA0LTI1VDEwOjI4OjE3KzAwOjAwunjJEgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNC0yNVQxMDoyODoxNyswMDowMMslca4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"
-            />
-          </canvas-template>
-          <div class="about-me-content-wrap">
-            <reciphering-text
-              text="A bit of History"
-              class="about-me-heading"
-            />
-            <p class="about-me-paragraph">
-              After getting introduced to programming, I've started trying out different spheres in IT Step academy,
-              and soon started to learn on my own in free Stepik courses. After completing Stepik algorithms and data structures course
-              with distinction, I've been invited to study and help with projects at Hyperskill, where I have obtained the most expertise
-              and brought Java and Kotlin to the next level.
-            </p>
-            <a 
-              class="about-me-button"
-              href="https://hyperskill.org/profile/60803"
-              rel="noopener noreferrer"
-              target="_blank"
-            >View my hyperskill profile</a>
-          </div>
-        </section>
-      </li>
-      <li
-        class="about-me-sections__wrap"
-        :class="{
-          'about-me-sections__wrap--active': activeSection == 2,
-        }"
-      >
-        <section class="about-me-section parallax">
-          <canvas-template>
-            <particle-image
-              base64src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAAADAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQT///9w6yyTAAAAYXRSTlMAAAEDq/z1HwIFcv5VBMf94QuR+znixawg9qrI4DuPDFdwIXE8Om8HDwYIkj0JwPEWF3+AgX6M+dd7gn3f8oYuLA1ISdjnTkdLsmxCSt7Gp/QcI/fJVpAiHaZtsYfzqME+GbIe1QAAAAFiS0dEYiu5HTwAAAAJcEhZcwAA3XUAAN11AayHw4MAAAAHdElNRQfmBBkKHB1cvli4AAACqUlEQVRIx5WV+0MSQRDHmT2xo+04lSyh7EWEEFYgCr5SMB+l0hN6P+b//yea3dm725WjYH7R3Rv2O/e9z8xmMnEI4cEcZhHnr4Ev1Abk4DptSLwBgRAZNwTl5zGUuLAI+qEQASxhATG8CZ4AN5tSYHEZZYi3PGHSPbhty7mn+7BSRHpcorOEkbuj5O4qubHTPViVSOL3uFKVct+Rc0sP4AGGdPpDekXBco8cOSedksq2D0rusS2nayBNE5EPFXUYb7DcEyVHAWAXM43tAkQuiqq2fXnNr/G6Dk/V78MGVNWSUvX7g/nh+oLy4RmAiJwtYVbi8xfgc9VASc3Who725lYHSbq7vbNhdnb3aI37L1ttWrWadIwPB/R600ThgER8OCyGBY6s3paFJKTeyap/w+Ihp3emO70Tp+tDpNmWqckyTp+2dpUuoNfnOOq/Qinx+OT0iDfOGq/po6J8c36h1z3bdwH1S2X7QCS2v1Vf6d17ZXvsu/B0BPDhI+OX80zUPmnaeyLQS/NVOYj2MMZPh0272bFpH9Lrz0z7MKF99SrtTi+NFO2ywl0/3lxuekT7SkJ7eXzIJM3kDeIhY3pp5DaXbWQgepr2fC2yMcdyxc/APnp2e/jwZV758DWaQPRQy13WufLoMzEEF+ffyIcQvzfODBOnJ8cKim7fMKEhmBGxBOAUZq2/0uJ9pvbg5vtn51nNN1Nrm8HRbv34qQrc222bqbGz3VVVd7Y2zY4eHMZ3H5r7KLP4K7Edfmva1w0wcXvoeQd/NH5LUOeBV/PXNO2DajwTozYztCv8ygntfJXMubTzwDb4hUw7N1dFy43i5koGdirt3FzlCbSX0mkfTrhSE9rBkgsrE65UTfvAulKd5vr/lZq35dKv1JGpVA0ZR+7qGHB9mGT7Xx5xFCe09zrMAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA0LTI1VDEwOjI4OjE3KzAwOjAwunjJEgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNC0yNVQxMDoyODoxNyswMDowMMslca4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"
-            />
-          </canvas-template>
-          <div class="about-me-content-wrap">
-            <reciphering-text
-              text="My Skills"
-              class="about-me-heading"
-            />
-            <p class="about-me-paragraph">
-              I've had experience in building small-scale projects in Java and Kotlin, variable in complexity.
-              I've had an immersive experience of building HTML & (S)CSS landings, 
-              including using tools such as Photoshop and Illustrator to prepare assets;
-              as well as having developed multiple medium-scale projects (>50,000 lines of code) built through JavaScript/TypeScript, 
-              and have 5 years of exprience with React and 2 years of experience working with Vue,
-              as well as limited experience in configuring advanced interrelated CI/CD systems.
-              Additional experience of mine is being able to debug code in a highly efficient manner, having worked 2 years as a code tester and debugger.
-            </p>
-          </div>
-        </section>
-      </li>
-      <li
-        class="about-me-sections__wrap"
-        :class="{
-          'about-me-sections__wrap--active': activeSection == 3,
-        }"
-      >
-        <section class="about-me-section parallax">
-          <canvas-template>
-            <particle-image
-              base64src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABKVBMVEUAAAADAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQQDAQT///9w6yyTAAAAYXRSTlMAAAEDq/z1HwIFcv5VBMf94QuR+znixawg9qrI4DuPDFdwIXE8Om8HDwYIkj0JwPEWF3+AgX6M+dd7gn3f8oYuLA1ISdjnTkdLsmxCSt7Gp/QcI/fJVpAiHaZtsYfzqME+GbIe1QAAAAFiS0dEYiu5HTwAAAAJcEhZcwAA3XUAAN11AayHw4MAAAAHdElNRQfmBBkKHB1cvli4AAACqUlEQVRIx5WV+0MSQRDHmT2xo+04lSyh7EWEEFYgCr5SMB+l0hN6P+b//yea3dm725WjYH7R3Rv2O/e9z8xmMnEI4cEcZhHnr4Ev1Abk4DptSLwBgRAZNwTl5zGUuLAI+qEQASxhATG8CZ4AN5tSYHEZZYi3PGHSPbhty7mn+7BSRHpcorOEkbuj5O4qubHTPViVSOL3uFKVct+Rc0sP4AGGdPpDekXBco8cOSedksq2D0rusS2nayBNE5EPFXUYb7DcEyVHAWAXM43tAkQuiqq2fXnNr/G6Dk/V78MGVNWSUvX7g/nh+oLy4RmAiJwtYVbi8xfgc9VASc3Who725lYHSbq7vbNhdnb3aI37L1ttWrWadIwPB/R600ThgER8OCyGBY6s3paFJKTeyap/w+Ihp3emO70Tp+tDpNmWqckyTp+2dpUuoNfnOOq/Qinx+OT0iDfOGq/po6J8c36h1z3bdwH1S2X7QCS2v1Vf6d17ZXvsu/B0BPDhI+OX80zUPmnaeyLQS/NVOYj2MMZPh0272bFpH9Lrz0z7MKF99SrtTi+NFO2ywl0/3lxuekT7SkJ7eXzIJM3kDeIhY3pp5DaXbWQgepr2fC2yMcdyxc/APnp2e/jwZV758DWaQPRQy13WufLoMzEEF+ffyIcQvzfODBOnJ8cKim7fMKEhmBGxBOAUZq2/0uJ9pvbg5vtn51nNN1Nrm8HRbv34qQrc222bqbGz3VVVd7Y2zY4eHMZ3H5r7KLP4K7Edfmva1w0wcXvoeQd/NH5LUOeBV/PXNO2DajwTozYztCv8ygntfJXMubTzwDb4hUw7N1dFy43i5koGdirt3FzlCbSX0mkfTrhSE9rBkgsrE65UTfvAulKd5vr/lZq35dKv1JGpVA0ZR+7qGHB9mGT7Xx5xFCe09zrMAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA0LTI1VDEwOjI4OjE3KzAwOjAwunjJEgAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wNC0yNVQxMDoyODoxNyswMDowMMslca4AAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAAAAElFTkSuQmCC"
-            />
-          </canvas-template>
-          <div class="about-me-content-wrap">
-            <reciphering-text
-              text="My Projects"
-              class="about-me-heading"
-            />
-            <p class="about-me-paragraph">
-              One of my key projects so far has been Chess Variants Wiki: a project using Typescript, React, Redux and Redux Saga for frontend,
-              and Spring Boot for backend. It is designed for being highly scalable at all sizes, with many optimizations such as automatically
-              registering files from directories, using SCSS modules to manage styles and advanced code structuring techniques such as converting classes
-              to their fully observable counterparts to split responsibilities between different variant rules. The project got me hooekd in as a challenging
-              task to implement in a quick time in a very clean way, especially with the complexity creating for difficulty of performance optimization and total amount of possible bugs.
+              {{ $t(`about.${['first','second','third','fourth'][index]}SectionParagraph`) }}
             </p>
           </div>
         </section>
@@ -135,7 +49,7 @@
         to="/about"
         class="about-me-button"
       >
-        Go back
+        {{ $t('goBack') }}
       </router-link>
     </div>
   </div>
