@@ -1,5 +1,9 @@
 <template>
-  <div id="app">
+  <div>
+    <locale-changer
+      :options="$i18n.availableLocales"
+      selected-value="en"
+    />
     <router-view v-slot="{ Component, route }">
       <transition :name="route.meta.transition">
         <component :is="Component" />
@@ -16,6 +20,7 @@
 import CanvasTemplate from "@/components/CanvasTemplate.vue";
 import BackgroundCanvas from "@/components/BackgroundCanvas.vue";
 import Home from "@/views/Home.vue";
+import LocaleChanger from "@/components/LocaleChanger.vue";
 
 export default {
   name: "App",
@@ -23,6 +28,7 @@ export default {
     CanvasTemplate,
     BackgroundCanvas,
     Home,
+    LocaleChanger
   },
   beforeCreate() {
     function throttle(callback, limit) {

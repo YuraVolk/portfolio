@@ -36,6 +36,12 @@ export default {
     };
   },
 
+  watch: { 
+    finalText(newValue) {
+      this.$refs["self-typing-paragraph"].textContent = newValue;
+    }
+  },
+
   created() {
     timesCreated++;
     this.letters = [...this.finalText];

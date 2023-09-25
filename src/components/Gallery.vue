@@ -4,7 +4,7 @@
       to="/about"
       class="gallery-content__link"
     >
-      Go back
+      {{ $t(`goBack`) }}
     </router-link>
 
     <div
@@ -28,12 +28,12 @@
                 :text="item.name"
               />
               <p class="gallery-content__description">
-                {{ item.description }}
+                {{ $t(`projects.${item.description}Description`) }}
               </p>
               <a
                 class="gallery-content__link"
                 :href="item.link"
-              >See more</a>
+              >{{ $t(`projects.seeMore`) }}</a>
             </div>
           </li>
         </ul>
@@ -115,26 +115,22 @@ export default {
       slides: [
         {
           name: "Chess Variants Wiki",
-          description: `A chess variants website supporting customization, over 40 variant rules to create countless variants,
-          engine-generated moves, as well as up to 4 players that play as teams or everyone against everyone. The website parses
-          the pages written in Markdown and when finding component syntax creates and shows chess variant boards ranging up to 14x14 board size.`,
+          description: `chess`,
           link: "https://chess-variants-wiki.onrender.com/",
         },
         {
           name: "Practice Landings Catalog",
-          description:
-            "A a catalog of practice landings showcasing HTML & (S)CSS techniques, currently featuring 10 practice landings with varying difficulty of implementation. All of the landings are responsible on dimensions from 320px to 1800px, and are as maximally accessible as possible in accordance with the original design. The catalog is meant to showcase clean SCSS code practices even for over-complicated designs as well as complex designs that is still done in a clean and a readable, understandable way.",
+          description: "practiceLandings",
           link: "https://practice-landings-catalog.surge.sh/",
         },
         {
           name: "JS Components Library",
-          description: "A library of Javascript components for various scenarios, ranging from simple to pagination to complex different types of carousels and zooming features, as well as inputs, sliders and image comparisons.",
+          description: "jsLibrary",
           link: "https://yuravolk.github.io/Js-Library/index.html"
         },
         {
           name: "Flappy Bird",
-          description:
-            "A simple pet project that features a flappy bird game with updated textures written in Javascript and working through and fully built with HTML5 Canvas, featuring simple and intuitive controls.",
+          description: "flappyBird",
           link: "https://yuravolk.github.io/Flappy-Bird-Pages/",
         },  
       ],

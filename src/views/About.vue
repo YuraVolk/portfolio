@@ -25,7 +25,7 @@
               >
             </picture>
             <h2 class="menu-option__heading">
-              About Me
+              {{ $t('menu.about') }}
             </h2>
           </router-link>
         </li>
@@ -52,7 +52,7 @@
               >
             </picture>
             <h2 class="menu-option__heading">
-              Projects
+              {{ $t('menu.projects') }}
             </h2>
           </router-link>
         </li>
@@ -79,7 +79,7 @@
               >
             </picture>
             <h2 class="menu-option__heading">
-              Education
+              {{ $t('menu.education') }}
             </h2>
           </router-link>
         </li>
@@ -106,7 +106,7 @@
               >
             </picture>
             <h2 class="menu-option__heading">
-              Contacts
+              {{ $t('menu.contacts') }}
             </h2>
           </router-link>
         </li>

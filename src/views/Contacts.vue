@@ -4,13 +4,12 @@
       <self-typing-text
         class="contacts-header"
         tag="h1"
-        final-text="Contact Me"
+        :final-text="$t('contacts.heading')"
       />
       <div class="contacts-form-wrap">
         <div class="contacts-description-wrap">
           <p class="contacts-description">
-            If you have any inquiries, collaboration opportunities, or would simply like to connect, please feel free to get in touch. 
-            I'm always excited to hear from new people and explore potential projects.
+            {{ $t('contacts.paragraph') }}
           </p>
           <hr>
           <ul class="contacts-social-media">
@@ -18,7 +17,7 @@
               Email: yura.volkovskiy.2006@gmail.com
             </li>
             <li class="contacts-social-media__item">
-              Discord username: yuravolk
+              Discord: yuravolk
             </li>
           </ul>
           <hr>
@@ -87,7 +86,7 @@
                 class="contacts-form__input"
                 type="text"
                 name="Name"
-                placeholder="Name"
+                :placeholder="$t('contacts.form.name')"
                 required
               >
               <span class="contacts-form__input-decoration" />
@@ -98,7 +97,7 @@
               <input
                 class="contacts-form__input"
                 type="email"
-                placeholder="Email"
+                :placeholder="$t('contacts.form.email')"
                 name="Email"
                 required
               >
@@ -111,7 +110,7 @@
             <input
               class="contacts-form__input"
               type="text"
-              placeholder="Subject"
+              :placeholder="$t('contacts.form.subject')"
               name="Subject"
               required
             >
@@ -123,7 +122,7 @@
             <textarea
               class="contacts-form__input"
               name="Message"
-              placeholder="Your message"
+              :placeholder="$t('contacts.form.message')"
               required
             />
             <span class="contacts-form__input-decoration" />
@@ -132,7 +131,7 @@
             type="submit"
             class="contacts-form__button"
           >
-            Submit
+            {{ $t('contacts.form.submit') }}
           </button>
         </form>
       </div>
@@ -143,7 +142,7 @@
         to="/about"
         class="about-me-button"
       >
-        Go back
+        {{ $t('goBack') }}
       </router-link>
     </div>
   </div>
