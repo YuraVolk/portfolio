@@ -77,7 +77,7 @@ export default {
     return {
       activeCertificate: "",
       currentFilter: "All",
-      filters: ["All", "Udemy", "Stepik", "General Education"],
+      filters: ["All", "Udemy", "Stepik", "Hyperskill", "General Education"],
       certificates: [
         {
           title: "The Complete JavaScript Course",
@@ -252,6 +252,36 @@ export default {
           category: "Stepik",
           link: "https://stepik.org/cert/119528",
           image: "/education/stepik/python-programming/python-programming",
+        },
+        {
+          title: "Frontend Core",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/f40532fc-22dc-46cb-9a4e-ac280b0f8ef9.pdf",
+          image: "/education/hyperskill/hyperskill-frontend/hyperskill-frontend_page-0001"
+        },
+        {
+          title: "Java Core",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/aaa1e99e-199f-4fb5-b99f-876e3f5c6688.pdf",
+          image: "/education/hyperskill/hyperskill-java/hyperskill-java_page-0001"
+        },
+        {
+          title: "Java Developer",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/7f54cedf-d38e-479c-ba11-2fb5dc9c6fb4.pdf",
+          image: "/education/hyperskill/hyperskill-java-dev/hyperskill-java-dev_page-0001"
+        },
+        {
+          title: "Introduction to Java",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/b171fb26-c7e9-4f5d-b079-0f346479f4c5.pdf",
+          image: "/education/hyperskill/hyperskill-java-intro/hyperskill-java-intro_page-0001"
+        },
+        {
+          title: "Introduction to JavaScript",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/e89fe52c-73c8-4ee2-a260-f74c5dc3eb6e.pdf",
+          image: "/education/hyperskill/hyperskill-js-intro/hyperskill-js-intro_page-0001"
         },
         {
           title: "School Certificate Front",

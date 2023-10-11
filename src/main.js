@@ -57,6 +57,7 @@ const i18n = createI18n({
                     All: "All",
                     Udemy: "Udemy",
                     Stepik: "Stepik",
+                    Hyperskill: "Hyperskill",
                     'General Education': "General Education"
                 }
             },
@@ -122,6 +123,7 @@ const i18n = createI18n({
                     All: "Все",
                     Udemy: "Udemy",
                     Stepik: "Stepik",
+                    Hyperskill: "Hyperskill",
                     'General Education': "Общее Образование"
                 }
             },
