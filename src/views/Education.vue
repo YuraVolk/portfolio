@@ -284,6 +284,24 @@ export default {
           image: "/education/hyperskill/hyperskill-js-intro/hyperskill-js-intro_page-0001"
         },
         {
+          title: "Kotlin Developer",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/a8106953-d37a-4e14-932a-40a3380f441e.pdf",
+          image: "/education/hyperskill/hyperskill-kotlin-dev/kotlin-developer"
+        },
+        {
+          title: "Kotlin Core",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/0e3f03a2-0288-4af3-8ba8-d223ad6de55f.pdf",
+          image: "/education/hyperskill/hyperskill-kotlin-core/kotlin-core"
+        },
+        {
+          title: "Java Desktop Application Developer",
+          category: "Hyperskill",
+          link: "https://hyperskill.org/certificates/64aaf664-b207-47e4-85c9-4b7bd10a51fa.pdf",
+          image: "/education/hyperskill/hyperskill-java-desktop/java-desktop"
+        },
+        {
           title: "School Certificate Front",
           category: "General Education",
           link: "#",
@@ -301,6 +319,36 @@ export default {
           link: "#",
           image: "/education/attestation-addition",
         },
+        {
+          title: "Middle Education Front",
+          category: "General Education",
+          link: "#",
+          image: "/education/diploma-front"
+        },
+        {
+          title: "Middle Education Back",
+          category: "General Education",
+          link: "#",
+          image: "/education/diploma"
+        },
+        {
+          title: "Middle Education Appendix",
+          category: "General Education",
+          link: "#",
+          image: "/education/addition"
+        },
+        {
+          title: "Step Academy Certification",
+          category: "General Education",
+          link: "#",
+          image: "/education/step-diploma"
+        },
+        {
+          title: "Step Academy Appendix",
+          category: "General Education",
+          link: "#",
+          image: "/education/step-addition"
+        }
       ],
     };
   },

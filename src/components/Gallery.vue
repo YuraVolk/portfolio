@@ -126,7 +126,7 @@ export default {
         {
           name: "JS Components Library",
           description: "jsLibrary",
-          link: "https://yuravolk.github.io/Js-Library/index.html"
+          link: "https://yuravolk.github.io/Js-Library/lit/menu-carousel/"
         },
         {
           name: "Flappy Bird",
