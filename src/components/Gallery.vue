@@ -131,7 +131,7 @@ export default {
         {
           name: "Flappy Bird",
           description: "flappyBird",
-          link: "https://yuravolk.github.io/Flappy-Bird-Pages/",
+          link: "https://yuravolk.github.io/Flappy-Bird-/",
         },  
       ],
       current: 1,
